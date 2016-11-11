@@ -38,7 +38,9 @@ export class RegisterPage {
       destinationType: Camera.DestinationType.DATA_URL,
       targetWidth: 1000,
       targetHeight: 1000,
-      quality: 100
+      quality: 100,
+      allowEdit: true,
+      cameraDirection: Camera.Direction.FRONT
     }
     Camera.getPicture( options )
     .then(imageData => {
