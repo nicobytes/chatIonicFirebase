@@ -1,0 +1,26 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-title>Login</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <form novalidate [formGroup]="loginForm" (ngSubmit)="doLogin()">
+    <ion-list>
+      <ion-item>
+        <ion-label floating>Email:</ion-label>
+        <ion-input type="text" formControlName="email"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label floating>Password:</ion-label>
+        <ion-input type="password" formControlName="password"></ion-input>
+      </ion-item>
+    </ion-list>
+    <div padding>
+      <button block ion-button type="submit" [disabled]="!loginForm.valid">Login</button>
+    </div>
+  </form>
+  <div padding>
+    <button ion-button block (click)="goToRegisterPage()">Register</button>
+  </div>
+</ion-content>

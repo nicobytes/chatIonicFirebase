@@ -1,0 +1,37 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-title>Chat</ion-title>
+    <ion-buttons end>
+      <button ion-button (click)="logout()">Logout</button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <h1 padding-horizontal>Hello!</h1>
+  <ion-list>
+    <ion-item *ngFor="let message of messages | async" text-wrap>
+      <ion-avatar item-left>
+        <img *ngIf="message.user.image" [src]="message.user.image">
+        <img *ngIf="!message.user.image" src="assets/imgs/avatar.png">
+      </ion-avatar>
+      <h2>{{ message.user.email }}</h2>
+      <p>{{ message.text }}</p>
+    </ion-item>
+  </ion-list>
+</ion-content>
+
+<ion-footer>
+  <ion-grid>
+    <ion-row>
+      <ion-col width-80>
+        <ion-input placeholder="Message" [(ngModel)]="newMessage.text"></ion-input>
+      </ion-col>
+      <ion-col>
+        <button ion-button block icon-only (click)="sendMessage()">
+           <ion-icon name="send"></ion-icon>
+        </button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-footer>

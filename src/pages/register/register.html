@@ -1,0 +1,36 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-title>Register</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <div class="crop">
+    <img [src]="image" *ngIf="image" />
+  </div>
+  <div padding>
+    <button ion-button block (click)="getPicture()" icon-left>
+      <ion-icon name="camera"></ion-icon>
+      Selie
+    </button>
+  </div>
+  <form novalidate [formGroup]="registerForm" (ngSubmit)="doRegister()">
+    <ion-list>
+      <ion-item>
+        <ion-label floating>Email:</ion-label>
+        <ion-input type="text" formControlName="email"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label floating>Password:</ion-label>
+        <ion-input type="password" formControlName="password"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label floating>Password confirm:</ion-label>
+        <ion-input type="password" formControlName="password_confirm"></ion-input>
+      </ion-item>
+    </ion-list>
+    <div padding>
+      <button ion-button block type="submit" [disabled]="!registerForm.valid">Register</button>
+    </div>
+  </form>
+</ion-content>
